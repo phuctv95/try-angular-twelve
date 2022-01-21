@@ -1,0 +1,5 @@
+<div class="container">
+    <button mat-raised-button color="primary" (click)="getRandomCatPhoto()" [disabled]="isGettingCat">Get another</button>
+    <p *ngIf="!imgSrc">Loading...</p>
+    <img *ngIf="!!imgSrc" src="{{imgSrc}}" (load)="onLoadImgCompleted()" class="image">
+</div>

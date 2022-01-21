@@ -1,13 +1,11 @@
 <div class="container">
-  <mat-toolbar color="primary" class="toolbar">
-    <span>Random Cat</span>
-  </mat-toolbar>
-  
-  <div class="body-container">
-    <div class="body">
-      <button mat-raised-button color="primary" (click)="getRandomCatPhoto()" [disabled]="isGettingCat">Get another</button>
-      <p *ngIf="!imgSrc">Loading...</p>
-      <img *ngIf="!!imgSrc" src="{{imgSrc}}" (load)="onLoadImgCompleted()" class="image">
+  <mat-toolbar color="primary" class="navbar">
+    <div class="links">
+      <a mat-button routerLink="/cat" routerLinkActive="link-active">Cat</a>
+      <a mat-button routerLink="/dog" routerLinkActive="link-active">Dog</a>
     </div>
+  </mat-toolbar>
+  <div class="body">
+    <router-outlet></router-outlet>
   </div>
 </div>

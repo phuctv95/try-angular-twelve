@@ -1,0 +1,18 @@
+<div class="container">
+    <button mat-raised-button color="primary" (click)="getRandomCatPhoto()" [disabled]="isGettingDog">Get another</button>
+    <p *ngIf="!imgSrc && !videoSrc">Loading...</p>
+    <img
+        *ngIf="!!imgSrc"
+        (load)="onLoadMediaCompleted()"
+        src="{{imgSrc}}"
+        class="media">
+    <video
+        #video
+        *ngIf="!!videoSrc"
+        (loadedmetadata)="onLoadMediaCompleted()"
+        controls
+        class="media">
+        <source *ngIf="videoSrc.endsWith('.webm')" src="{{videoSrc}}" type="video/webm">
+        <source *ngIf="videoSrc.endsWith('.mp4')" src="{{videoSrc}}" type="video/mp4">
+    </video>
+</div>
