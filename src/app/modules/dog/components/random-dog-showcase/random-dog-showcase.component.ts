@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { DataService } from 'src/app/services/data.service';
 
 @Component({
   selector: 'app-random-dog-showcase',
@@ -14,7 +15,9 @@ export class RandomDogShowcaseComponent implements OnInit {
 
   @ViewChild('video') videoEle: ElementRef<HTMLVideoElement> | undefined;
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private dataService: DataService) {
+    console.log(`RandomDogShowcaseComponent: ${dataService.data1}`);
+  }
 
   ngOnInit(): void {
     this.getRandomCatPhoto();

@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { DataService } from 'src/app/services/data.service';
 
 @Component({
   selector: 'app-random-cat-showcase',
@@ -11,7 +12,9 @@ export class RandomCatShowcaseComponent implements OnInit {
   imgSrc = null;
   isGettingCat = false;
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private dataService: DataService) {
+    console.log(`RandomCatShowcaseComponent: ${dataService.data1}`);
+  }
 
   ngOnInit(): void {
     this.getRandomCatPhoto();
